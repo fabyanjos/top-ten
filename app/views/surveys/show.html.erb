@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tilte:</b>
+  <%= @survey.tilte %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @survey.description %>
+</p>
+
+<p>
+  <b>Style:</b>
+  <%= @survey.style %>
+</p>
+
+
+<%= link_to 'Edit', edit_survey_path(@survey) %> |
+<%= link_to 'Back', surveys_path %>
+
+<% @survey.questions.each do |question| %>
+    <strong><%= question.tilte %></strong><br/>
+    <p><%= question.help %></p>
+<% end %>
+
+<%= render 'questions/form' %>
