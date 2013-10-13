@@ -11,19 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :tilte %><br />
-    <%= f.text_field :tilte %>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.label :tilte %>
+      <%= f.text_field :tilte, :placeholder => "Title" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.label :description %>
+      <%= f.text_area :description, :cols => 20, :rows => 40 %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :style %><br />
-    <%= f.text_field :style %>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.label :style %>
+      <%= f.text_field :style %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <%= f.fields_for :questions do |builder| %>
+    <%= render "question_fields", :f => builder %>
+  <% end %>
+  <div class="row">
+    <div class="small-4 columns">
+      <%= f.submit  'Submit', :name => "submit", :class => "button small success" %>
+      <%= link_to 'Back', surveys_path, :class => "button small success"  %>
+    </div>
   </div>
 <% end %>
