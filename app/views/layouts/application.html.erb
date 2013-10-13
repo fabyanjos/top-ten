@@ -1,28 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>TopTen</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<%= html_tag :class => "no-js" %>
+  <%= render "head" %>
 
-<div id="container">
-	<div id="user_nav">
-	  <% if current_user %>
-	    Signed in as <strong><%= current_user.name %></strong>!
-	    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-	  <% else %>
-	    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-	  <% end %>
-	</div>
-	<% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
-</div>
+  <body class="<%= controller.controller_name %>">
+    <%= render "chromeframe" %>
+    <%= render "header" %>
+    <%= render "flashes" %>
 
-<%= yield %>
+    <div class="main-container">
+        <div class="main wrapper clearfix">
+          <article>
+            <%= yield %>
+          </article>
+          <%= render "login" %>
+        </div> <!-- #main -->
+    </div> <!-- #main-container -->
 
-</body>
+    <%= render "footer" %>
+
+    <%# Javascript at the bottom for fast page loading %>
+    <%= render "javascripts" %>
+  </body>
 </html>

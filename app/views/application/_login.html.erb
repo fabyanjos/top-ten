@@ -1,0 +1,17 @@
+<aside>
+  <h3>
+    <% if current_user %>
+      <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <% else %>
+           <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    <% end %>  
+  </h3>
+   <div id="user_nav">
+     <% if current_user %>
+           Signed in as <strong><%= current_user.name %></strong>!
+     <% end %>
+    </div>
+     <% flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, class: name %>
+     <% end -%>
+</aside>
