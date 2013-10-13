@@ -12,24 +12,24 @@
   <% end %>
 
   <div class="row">
-    <div class="large-6 columns">
+    <div class="large-9 columns">
       <%= f.label :title %>
       <%= f.text_field :title, :placeholder => "Title" %>
     </div>
   </div>
   <div class="row">
-    <div class="large-6 columns">
+    <div class="large-9 columns">
       <%= f.label :description %>
       <%= f.text_area :description, :cols => 20, :rows => 40 %>
     </div>
   </div>
   <div class="row">
-    <div class="large-6 columns">
+    <div class="large-9 columns">
       <%= f.label :style %>
       <%= f.text_field :style %>
     </div>
   </div>
-  <fieldset>
+  <fieldset class="fields">
     <legend>Questions</legend>
       <p><%= link_to_add_fields "Add Option", f, :questions %></p>
       <%= f.fields_for :questions do |builder| %>

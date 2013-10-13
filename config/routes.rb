@@ -1,9 +1,6 @@
 TopTen::Application.routes.draw do
 
- 	resources :questions
-
-	resources :surveys
-	resources :questions
+ 	resources :surveys
 
 	match 'auth/:provider/callback', to: 'sessions#create'
 	match 'auth/failure', to: redirect('/')
