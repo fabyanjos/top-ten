@@ -2,7 +2,7 @@
 
 <p>
   <b>Tilte:</b>
-  <%= @survey.tilte %>
+  <%= @survey.title %>
 </p>
 
 <p>
@@ -14,14 +14,17 @@
   <b>Style:</b>
   <%= @survey.style %>
 </p>
-
+<p> 
+	Options (<%= @survey.questions.size%>)
+	<ul>
+		<% @survey.questions.each do |question| %>
+	    	<li><%= question.id %> <%= question.title %></li>
+		<% end %>
+	</ul>
+</p>
 
 <%= link_to 'Edit', edit_survey_path(@survey) %> |
 <%= link_to 'Back', surveys_path %>
 
-<% @survey.questions.each do |question| %>
-    <strong><%= question.tilte %></strong><br/>
-    <p><%= question.help %></p>
-<% end %>
 
-<%= render 'questions/form' %>
+

@@ -17,3 +17,13 @@
 
 
 $(document).foundation();
+
+function remove_fields(link) {
+  $(link).parent().find('input[type=hidden]').val("true");
+  $(link).parents(".fields").hide();
+}
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).parents('fieldset').append(content.replace(regexp, new_id));
+}

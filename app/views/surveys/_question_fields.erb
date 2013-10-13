@@ -1,8 +1,10 @@
-<div class="row">
+<div class="row fields">
 	<div class="large-4 columns">
 		<%= f.label :title, "Name" %>
 		<%= f.text_field :title %>
-		<%= f.check_box :_destroy %>
-  		<%= f.label :_destroy, "Remove Question" %>
+		
 	</div>
+	<div class="large-4 columns">
+		<%= link_to_remove_fields "remove", f %>
+  	</div>
 </div>	

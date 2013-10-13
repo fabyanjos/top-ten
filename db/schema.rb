@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009075114) do
+ActiveRecord::Schema.define(:version => 20131013092540) do
 
   create_table "questions", :force => true do |t|
-    t.string   "tilte"
+    t.string   "title"
     t.text     "help"
     t.integer  "survey_id"
     t.datetime "created_at", :null => false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20131009075114) do
   end
 
   create_table "surveys", :force => true do |t|
-    t.string   "tilte"
+    t.string   "title"
     t.text     "description"
     t.string   "style"
     t.integer  "user_id"
