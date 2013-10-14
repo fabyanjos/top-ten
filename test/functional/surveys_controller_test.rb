@@ -2,6 +2,7 @@ require 'test_helper'
 
 class SurveysControllerTest < ActionController::TestCase
   setup do
+    session[:user_id] = users(:one)
     @survey = surveys(:one)
   end
 
@@ -18,7 +19,7 @@ class SurveysControllerTest < ActionController::TestCase
 
   test "should create survey" do
     assert_difference('Survey.count') do
-      post :create, survey: { description: @survey.description, style: @survey.style, tilte: @survey.tilte }
+      post :create, survey: { description: @survey.description, style: @survey.style, title: @survey.title }
     end
 
     assert_redirected_to survey_path(assigns(:survey))
@@ -35,7 +36,7 @@ class SurveysControllerTest < ActionController::TestCase
   end
 
   test "should update survey" do
-    put :update, id: @survey, survey: { description: @survey.description, style: @survey.style, tilte: @survey.tilte }
+    put :update, id: @survey, survey: { description: @survey.description, style: @survey.style, title: @survey.title }
     assert_redirected_to survey_path(assigns(:survey))
   end
 
