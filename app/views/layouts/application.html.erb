@@ -1,24 +1,47 @@
 <!DOCTYPE html>
-<%= html_tag :class => "no-js" %>
-  <%= render "head" %>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Rails Bootstrap" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body class="<%= controller.controller_name %>">
-    <%= render "chromeframe" %>
-    <%= render "header" %>
-    <%= render "flashes" %>
+<body class="container">
+  <header>
+    <%= render 'layouts/navigation' %>
+  </header>
 
-    <div class="main-container">
-        <div class="main wrapper clearfix">
-          <article>
-            <%= yield %>
-          </article>
-          <%= render "login" %>
-        </div> <!-- #main -->
-    </div> <!-- #main-container -->
+  <div class="row">
+    <div class="col-lg-8">
+      <%= yield %>
+    </div>
 
-    <%= render "footer" %>
+    <aside class="col-lg-4">
+      
+      <div class="panel panel-default">
+        <div class="panel-heading">Login</div>
+        <div class="panel-body">
+          <div class="well">
+            <% if current_user %>
+              Signed in as <strong><%= current_user.name %></strong>!<br/>
+              <%= link_to "Sign out", signout_path, id: "sign_out" %>
+            <% else %>
+              <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+            <% end %>
+          </div>  
+        </div>
+      </div>
 
-    <%# Javascript at the bottom for fast page loading %>
-    <%= render "javascripts" %>
-  </body>
+    </aside>
+
+  </div>
+  
+  <footer>
+    <p>© Ale & Fabi 2013</p>
+  </footer>
+
+</body>
 </html>

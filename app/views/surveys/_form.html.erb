@@ -4,42 +4,34 @@
       <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
 
       <ul>
-      <% @survey.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @survey.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="large-9 columns">
-      <%= f.label :title %>
-      <%= f.text_field :title, :placeholder => "Title" %>
-    </div>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title, :placeholder => "Title" %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => 10 %>
+  </p>
+  <p>
+    <%= f.label :style %>
+    <%= f.text_field :style %>
+  </p>
+
+  <div class="well" id="questions-fields">
+    <h3>Questions</h3>
+    <p><%= link_to_add_fields "Add Option", f, :questions %></p>
+    <%= f.fields_for :questions do |builder| %>
+      <%= render "question_fields", :f => builder %>
+    <% end %>
   </div>
-  <div class="row">
-    <div class="large-9 columns">
-      <%= f.label :description %>
-      <%= f.text_area :description, :cols => 20, :rows => 40 %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-9 columns">
-      <%= f.label :style %>
-      <%= f.text_field :style %>
-    </div>
-  </div>
-  <fieldset class="fields">
-    <legend>Questions</legend>
-      <p><%= link_to_add_fields "Add Option", f, :questions %></p>
-      <%= f.fields_for :questions do |builder| %>
-        <%= render "question_fields", :f => builder %>
-      <% end %>
-  </fieldset>
-  <div class="row">
-    <div class="small-4 columns">
-      <%= f.submit  'Submit', :name => "submit", :class => "button small success" %>
-      <%= link_to 'Back', surveys_path, :class => "button small success"  %>
-    </div>
-  </div>
+  <p>
+    <%= f.submit  'Submit', :name => "submit" %>
+  </p>
 <% end %>

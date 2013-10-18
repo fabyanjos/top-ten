@@ -1,6 +1,11 @@
-<fieldset>
-    <legend>New survey</legend>
-
-<%= render 'form' %>
-
-</fieldset>
+<div class="panel panel-default">
+  	<div class="panel-heading">
+  		New survey
+  		<div class="panel-heading-action">
+  			<%= link_to 'Back', surveys_path %>
+  		</div>
+  	</div>
+  	<div class="panel-body">
+  		<%= render 'form' %>
+	</div>
+</div>

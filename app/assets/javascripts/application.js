@@ -12,18 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
-//= require h5bp
-
-
-$(document).foundation();
+//= require bootstrap
+//= require_tree .
 
 function remove_fields(link) {
   $(link).parent().find('input[type=hidden]').val("true");
-  $(link).parents("div.fields").hide();
+  $(link).parent().hide();
 }
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")
-  $(link).parents('fieldset.fields').append(content.replace(regexp, new_id));
+  $("#questions-fields").append(content.replace(regexp, new_id));
 }

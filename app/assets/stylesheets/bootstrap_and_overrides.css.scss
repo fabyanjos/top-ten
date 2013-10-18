@@ -1,0 +1,65 @@
+$navbar-default-link-hover-bg:		#99CCCC !default;
+$navbar-default-link-color:         #FFF !default;
+@import "bootstrap";
+body { padding-top: 60px; }
+@mixin gradient($from, $to) {
+    background-color: $to;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+    background-image: -webkit-linear-gradient($from, $to);
+    background-image: -moz-linear-gradient($from, $to);
+    background-image: -o-linear-gradient($from, $to);
+    background-image: -ms-linear-gradient($from, $to);
+    background-image: linear-gradient($from, $to);
+}
+.navbar-default {
+	@include gradient(#D6EBEB, #008080);
+}
+.navbar-default .navbar-nav > li > a:hover {
+	@include gradient(#FFF, #80C0C0);
+}
+.panel-heading {
+	@include gradient(#FFF, #80C0C0);
+}
+form {
+	@extend .form-horizontal;
+}
+form p {
+	@extend .form-group;
+	@extend .col-lg-12;
+}
+form label {
+	@extend .col-lg-2;
+	@extend .control-label;
+	text-align: right;
+	margin-right: 10px;
+	width: 18%;
+	padding-top: 7px;
+}
+form input[type="text"], form textarea {
+	@extend .form-control;
+	width: 80%;
+}
+form button, form input[type="submit"] {
+	@extend .btn;
+	@extend .btn-default;
+	@extend .col-lg-2;
+	float: right;
+	margin-right: 5px;
+}
+form p a {
+	@extend .btn;
+	@extend .col-lg-2;
+	@extend .btn-default;
+	float: right;
+}
+.panel-heading-action {
+	float: right;
+}
+:first-letter {
+	text-transform: capitalize;
+}
+footer {
+	padding-top: 19px;
+	border-top: 1px solid #e5e5e5;
+	margin-bottom: 0;
+}
