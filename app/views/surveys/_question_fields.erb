@@ -1,4 +1,7 @@
-<p>
-	<%= link_to_remove_fields "remove", f %>
+<p class="question">
+	<%= f.hidden_field(:_destroy) %>
+	<a onclick="remove_fields(this)">
+		Remove
+	</a>
 	<%= f.text_field :title, :placeholder => "Name" %>
 </p>
