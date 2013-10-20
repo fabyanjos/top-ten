@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'hpricot'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -58,5 +59,17 @@ module TopTen
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+        if html_tag =~ /<(input|label|textarea|select)/
+            error_class = 'error'
+            nodes = Hpricot(html_tag)
+            nodes.each_child { |node| node[:class] = node.classes.push(error_class).join(' ') unless !node.elem? || node[:type] == 'hidden' || node.classes.include?(error_class) }
+            nodes.to_html.html_safe
+        else
+            html_tag.html_safe
+        end
+    end
+
   end
 end

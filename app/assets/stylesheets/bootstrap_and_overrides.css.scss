@@ -38,6 +38,7 @@ form label {
 form input[type="text"], form textarea {
 	@extend .form-control;
 	width: 80%;
+	display: inline-block;
 }
 form button, form input[type="submit"] {
 	@extend .btn;
@@ -46,11 +47,25 @@ form button, form input[type="submit"] {
 	float: right;
 	margin-right: 5px;
 }
-form p a {
+.error {
+	color: #b94a48;
+}
+input[type="text"].error {
+	border: solid #b94a48 1px;
+	background-color: #f2dede;
+}
+.btn-remove {
 	@extend .btn;
-	@extend .col-lg-2;
-	@extend .btn-default;
-	float: right;
+	@extend .btn-danger;
+}
+.btn-add {
+	@extend .btn;
+	@extend .btn-primary;
+	color: #FFF !important;
+}
+.btn-add:before {
+	@extend .glyphicon;
+	@extend .glyphicon-plus-sign;
 }
 .panel-heading-action {
 	float: right;
@@ -62,4 +77,7 @@ footer {
 	padding-top: 19px;
 	border-top: 1px solid #e5e5e5;
 	margin-bottom: 0;
+}
+.txt-small {
+	width: 38% !important;
 }
