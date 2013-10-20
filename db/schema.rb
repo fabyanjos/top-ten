@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019131704) do
+ActiveRecord::Schema.define(:version => 20131020101404) do
 
   create_table "orders", :force => true do |t|
     t.integer  "vote_id"
@@ -34,8 +34,12 @@ ActiveRecord::Schema.define(:version => 20131019131704) do
     t.text     "description"
     t.string   "style"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.datetime "end_date"
+    t.string   "url"
+    t.integer  "end_qty_votes"
+    t.boolean  "closed"
   end
 
   create_table "users", :force => true do |t|

@@ -1,30 +1,39 @@
-<div data-alert class="alert-box success"><%= notice %></div>
-
-<p>
-  <b>Tilte:</b>
-  <%= @survey.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @survey.description %>
-</p>
-
-<p>
-  <b>Style:</b>
-  <%= @survey.style %>
-</p>
-<p> 
-	Options (<%= @survey.questions.size%>)
-	<ul>
-		<% @survey.questions.each do |question| %>
-	    	<li><%= question.id %> <%= question.title %></li>
+<div class="panel panel-default">
+    <div class="panel-heading">
+      Show survey
+      <div class="panel-heading-action">
+        <%= link_to 'Edit', edit_survey_path(@survey) %> |
+		<%= link_to 'Back', surveys_path %>
+      </div>
+    </div>
+    <div class="panel-body">
+		
+		<% if flash[:notice] %>
+			<div class="alert alert-success"><%= notice %></div>
 		<% end %>
-	</ul>
-</p>
 
-<%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back', surveys_path %>
+		<p>
+		  <b>Tilte:</b>
+		  <%= @survey.title %>
+		</p>
 
+		<p>
+		  <b>Description:</b>
+		  <%= @survey.description %>
+		</p>
 
+		<p>
+		  <b>Style:</b>
+		  <%= @survey.style %>
+		</p>
+		<p> 
+			Options (<%= @survey.questions.size%>)
+			<ul>
+				<% @survey.questions.each do |question| %>
+			    	<li><%= question.id %> <%= question.title %></li>
+				<% end %>
+			</ul>
+		</p>
+	</div>
+</div>
 
