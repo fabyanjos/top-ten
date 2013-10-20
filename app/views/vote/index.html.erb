@@ -1,0 +1,37 @@
+<div data-alert class="alert-box success"><%= notice %></div>
+
+<h2>
+  <%= @survey.title %>
+</h2>
+
+<p>
+  <%= @survey.description %>
+</p>
+
+<p> 
+  Order the (<%= @survey.questions.size%>) options
+  <%= form_tag('/posts') do -%>
+    <ul id="sortable">
+      <% @survey.questions.each do |question| %>
+          <li id="<%= "order_#{question.id}"%>" class="ui-state-default">
+            <span class="order"><%="#{(@survey.questions.index question)+1}" %></span>
+            <%= question.title %>
+          </li>
+      <% end %>
+    </ul>
+    <%= submit_tag 'Save' %>
+  <% end -%>
+</p>
+<script type="text/javascript">
+$(function() {
+    $( "#sortable" ).sortable({
+      update: function(event, ui) {
+        console.log($('#sortable').sortable('serialize'));
+        $("#sortable > li").each(function (index,li) {
+            $(li).find(".order").html(index+1);
+        });
+    }
+    });
+    $( "#sortable" ).disableSelection();
+ });
+</script>

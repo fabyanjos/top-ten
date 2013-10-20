@@ -1,9 +1,81 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
+top5bands_one:
+  title: Dream Theater
   help: MyText
+  survey: top5bands
 
-two:
-  title: MyString
+top5bands_two:
+  title: Iron Maiden
   help: MyText
+  survey: top5bands
+
+top5bands_three:
+  title: Metallica
+  help: MyText
+  survey: top5bands
+
+top5bands_four:	
+  title: Led Zepellin
+  help: MyText
+  survey: top5bands
+
+top5bands_five:
+  title: Pink Floyd
+  help: MyText
+  survey: top5bands
+
+top10games_one:
+  title: Tetris
+  help: MyText
+  survey: top10games
+
+top10games_two:	
+  title: Crono Trigger
+  help: MyText
+  survey: top10games
+
+top10games_two:	
+  title: The Legend Of Zelda - Ocarina Of Time
+  help: MyText
+  survey: top10games
+
+top10games_three:	
+  title: Half Life 2
+  help: MyText
+  survey: top10games
+
+top10games_four:		
+  title: Super Mario Bros 3 (NES)
+  help: MyText
+  survey: top10games  
+
+top10games_five:	
+  title: Final Fantasy VII
+  help: MyText
+  survey: top10games
+
+top10games_six:	
+  title: Pokemon Red and Blue
+  help: MyText
+  survey: top10games  
+
+top10games_seven:	
+  title: Donkey Kong Country (SNES)
+  help: MyText
+  survey: top10games
+
+top10games_eight:	
+  title: Mortal Kombat
+  help: MyText
+  survey: top10games    
+
+top10games_nine:	
+  title: Gears Of War (XBox 360)
+  help: MyText
+  survey: top10games  
+
+top10games_ten:	
+  title: The Legend Of Zelda - A Link to The Past
+  help: MyText
+  survey: top10games 

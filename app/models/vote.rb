@@ -1,7 +1,19 @@
 class Vote < ActiveRecord::Base
   belongs_to :user
-  belongs_to :survey
+  has_one :survey
   has_many :orders, :dependent => :destroy
-  attr_accessible :survey_id, :user_id
-  accepts_nested_attributes_for :orders, :reject_if => lambda { |a| a[:value].nil? or a[:value] < 0}, :allow_destroy => true
+  attr_accessor :survey, :orders
+  attr_accessible :survey_id, :user_id, :survey
+  accepts_nested_attributes_for :orders, :allow_destroy => true
+
+  def add_survey_and_user(survey, user)
+    self.user = user
+  	self.survey = survey
+    self.orders = []
+  	self.survey.questions.each do |question| 
+  		order = Order.new
+  		order.question = question
+  		self.orders << order
+  	end
+  end
 end

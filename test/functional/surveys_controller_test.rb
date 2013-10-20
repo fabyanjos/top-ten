@@ -3,7 +3,7 @@ require 'test_helper'
 class SurveysControllerTest < ActionController::TestCase
   setup do
     session[:user_id] = users(:one)
-    @survey = surveys(:one)
+    @survey = surveys(:top5bands)
   end
 
   test "should get index" do
