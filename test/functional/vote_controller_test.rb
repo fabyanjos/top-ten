@@ -8,7 +8,7 @@ class VoteControllerTest < ActionController::TestCase
   end	
 
   test "should get index" do
-    get :index, id: @survey
+    get :index, survey_id: @survey
     assert_response :success
   end
 
