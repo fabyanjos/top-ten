@@ -2,8 +2,8 @@
   	<div class="panel-heading">
   		Editing survey
   		<div class="panel-heading-action">
-  			<span class="label label-default"><%= link_to 'Show', @survey %></span>
-			<span class="label label-default"><%= link_to 'Back', surveys_path %></span>
+  			<%= link_to 'Show', @survey %>
+			<%= link_to 'Back', surveys_path, :class => "btn-back" %>
   		</div>
   	</div>
   	<div class="panel-body">

@@ -1,5 +1,6 @@
 $navbar-default-link-hover-bg:		#99CCCC !default;
 $navbar-default-link-color:         #FFF !default;
+
 @import "bootstrap";
 body { padding-top: 60px; }
 @mixin gradient($from, $to) {
@@ -80,4 +81,16 @@ footer {
 }
 .txt-small {
 	width: 38% !important;
+}
+.btn-back {
+
+}
+.btn-back:before {
+	@extend .glyphicon;
+	@extend .glyphicon-circle-arrow-left;
+	margin-right: 2px;
+}
+a:hover {
+	background-color: transparent !important;
+	color: $gray-dark !important;
 }

@@ -26,5 +26,5 @@ function add_fields(link, association, content) {
   $("#questions-fields").append(content.replace(regexp, new_id));
 }
 $(function() {
-	$( "#datepicker" ).datepicker();
+	$("#datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
 });
