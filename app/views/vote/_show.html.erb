@@ -1,0 +1,19 @@
+<h2>
+  <%= @vote.survey.title %>
+</h2>
+
+<p>
+  <%= @vote.survey.description %>
+</p>
+
+<p> 
+  Order the (<%= @vote.survey.questions.size%>) options
+    <ul id="sortable">
+      <% @vote.orders.each do |order| %>
+          <li value="<%= "#{order.question.id}"%>" id="<%= "order_#{order.question.id}"%>" class="ui-state-default">
+            <span class="order"><%="#{(@vote.orders.index order)+1}" %></span>
+            <%= order.question.title %>
+          </li>
+      <% end %>
+    </ul>
+</p>
