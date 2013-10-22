@@ -19,21 +19,18 @@ class Survey < ActiveRecord::Base
   end
 
   def future_date
-  	if end_date <= Time.now
+  	if !end_date.nil? and end_date <= Time.now
   		errors.add(:end_date, "need to be a future date")
   	end
   end
 
   def question_size
-  	puts questions.size
   	final = Array.new
   	questions.each do |q|
-  		puts q._destroy
   		unless q._destroy
   			final << q
   		end
   	end
-  	puts final.size
   	if final.size < 5 or final.size > 10
 		errors.add(:questions, "need to be >= 5 and <= 10")
 	end
